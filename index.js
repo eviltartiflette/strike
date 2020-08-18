@@ -161,9 +161,9 @@ WrikeClient.prototype.getCustomFields = function(){
  * {@link https://developers.wrike.com/api/v4/folders-projects/#get-folder-tree GET /folders documentation}
  * @returns {Array} A list of folders
  */
-WrikeClient.prototype.getFolderTree = function(params){
+WrikeClient.prototype.getFolderTree = function(){
     return new Promise((resolve,reject)=>{
-        wrikeHTTP('GET','/folders',params,this.token)
+        wrikeHTTP('GET','/folders',{},this.token)
         .then(res=>{
             resolve(res)
         })
