@@ -56,6 +56,7 @@ writeTemplate()
 ```
 
 ## Functions: ##
+**Every function is asynchronous, with the sole exception of stike's instanciation**
 
 - **getContacts()**
   
