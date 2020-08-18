@@ -1,0 +1,19 @@
+{
+  "name": "strike",
+  "version": "0.0.1",
+  "description": "A quick and dirty (mostly dirty) NodeJS API wrapper for Wrike",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wrike",
+    "nodejs"
+  ],
+  "author": "maximerancon@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
