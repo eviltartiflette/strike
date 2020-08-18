@@ -10,7 +10,7 @@ npm install https://github.com/eviltartiflette/strike.git
 ```js script  
 const strike = require('@eviltartiflette/strike')
 
-let wrikeClient = new strike('1234567890')
+let wrikeClient = new strike('1234567890') //Instanciate a strike class with a Wrike permanent acces token
 
 async function writeTemplate(){
     try {
@@ -33,7 +33,7 @@ async function writeTemplate(){
                     'value': 'hungryclient@mailbox.com'
                 }
             ]
-        })
+        })  //Create a folder in the folder 'IEABK5AAI1231H', with properties and custom fields
 
         let firstTask = await wrikeClient.createTask(createdFolder.id,{
             'title':'Make the cake',
@@ -41,7 +41,7 @@ async function writeTemplate(){
                 'due':'2020-11-19'
             },
             'responsibles':[await wrikeClient.emailToContactID('cook@bakery.com')]
-        })
+        }) //Create a task in the folder we created earlier
 
     } catch (error) {
         throw error
