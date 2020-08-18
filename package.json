@@ -16,5 +16,9 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/eviltartiflette/strike.git"
+  }
 }
