@@ -57,6 +57,14 @@ writeTemplate()
 
 ## Functions: ##
 **Every function is asynchronous, with the sole exception of stike's instanciation**
+- **emailToContactID(email)**
+
+    Find a Wrike contact ID from an email address
+
+- **customFieldNameToID(name)**
+
+    Find a custom field ID from its name
+
 
 - **getContacts()**
   
