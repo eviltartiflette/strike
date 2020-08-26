@@ -94,6 +94,10 @@ writeTemplate()
 
     Creates a folder (or a project), which will be children of the provided folder id, the created folder will be returned as an object, parameters are detailled here : https://developers.wrike.com/api/v4/folders-projects/#create-folder ( POST /folders/(folderid)/folders )
 
+- **createCommentFolder(folderid, params)**
+
+    Creates a comment in a folder, the created comment will be returned as an object, parameters are detailled here : https://developers.wrike.com/api/v4/comments/#create-comment ( POST /folders/(folderid)/comments )
+
 - **updateFolder(folderid, params)**
 
     Modify an already existing folder, the modified folder will be returned as an object, parameters are detailled here : https://developers.wrike.com/api/v4/folders-projects/#modify-folder ( PUT /folders/(folderId) )

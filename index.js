@@ -297,6 +297,27 @@ WrikeClient.prototype.deleteFolder = function(folderid){
     })
 }
 
+/**
+ * Create a comment in a Wrike folder/project
+ * @async
+ * @param {String} folderid Wrike folder ID
+ * @param {object} params Request parameters, as key/value pairs
+ * {@link https://developers.wrike.com/api/v4/comments/#create-comment /folders/(folderId)/comments documentation}
+ * @returns {Object} The created comment
+ */
+WrikeClient.prototype.createCommentFolder = function(folderid,params){
+    if(typeof params == 'undefined'){params = {}}
+    return new Promise((resolve,reject)=>{
+        wrikeHTTP('POST','/folders/'+folderid+'/comments',params,this.token)
+        .then(res=>{
+            resolve(res[0])
+        })
+        .catch(err=>{
+            reject(err)
+        })
+    })
+}
+
 
 
 
