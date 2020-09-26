@@ -56,7 +56,8 @@ writeTemplate()
 ```
 
 ## Functions: ##
-**Every function is asynchronous, with the sole exception of strike's instanciation**
+**Every function is asynchronous, with the sole exception of strike's instanciation.**  
+
 **Helper functions:**
 - **emailToContactID(email)**
 
