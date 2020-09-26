@@ -56,7 +56,7 @@ writeTemplate()
 ```
 
 ## Functions: ##
-**Every function is asynchronous, with the sole exception of stike's instanciation**
+**Every function is asynchronous, with the sole exception of strike's instanciation**
 - **emailToContactID(email)**
 
     Find a Wrike contact ID from an email address
