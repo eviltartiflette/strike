@@ -57,6 +57,7 @@ writeTemplate()
 
 ## Functions: ##
 **Every function is asynchronous, with the sole exception of strike's instanciation**
+**Helper functions:**
 - **emailToContactID(email)**
 
     Find a Wrike contact ID from an email address
@@ -77,6 +78,7 @@ writeTemplate()
   
   Returns an array of custom fields of the wrike workspace, the response will be cached.
 
+**Folder/projects related functions:**
 - **getFolderTree(params)**
 
     Returns the folder tree, as an array of folders, optional parameters are detailled here : https://developers.wrike.com/api/v4/folders-projects/#get-folder-tree ( GET /folders )
@@ -109,6 +111,7 @@ writeTemplate()
 
     Deletes a folder
 
+**Tasks related functions:**
 - **getTasks()**
 
     Returns a list of tasks as an array, optionnal parameters are detailled here : https://developers.wrike.com/api/v4/tasks/#query-tasks ( GET /tasks )
