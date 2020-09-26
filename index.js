@@ -5,6 +5,7 @@ class WrikeClient{
         this.token = token;
         this.customFields = [];
         this.contacts = [];
+        this.workflows = [];
     }
 }
 
@@ -100,7 +101,29 @@ WrikeClient.prototype.contactIDToEmail = async function(contactid){
 
 
 
-
+/**
+ * Return Wrike workflows, the response will be cached
+ * @async
+ * {@link https://developers.wrike.com/api/v4/workflows/#query-workflows GET /workflows documentation}
+ * @returns {Array} List of workflows
+ */
+WrikeClient.prototype.getWorkflows = function(){
+    return new Promise((resolve,reject)=>{
+        if(this.workflows.length == 0){
+            wrikeHTTP('GET','/workflows',{},this.token)
+            .then(res=>{
+                this.workflows = res
+                resolve(res)
+            })
+            .catch(err=>{
+                reject(err)
+            })
+        }
+        else{
+            resolve(this.workflows)
+        }
+    })
+}
 
 /**
  * Return Wrike contacts info, the response will be cached

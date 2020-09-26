@@ -65,6 +65,9 @@ writeTemplate()
 
     Find a custom field ID from its name
 
+- **getWorkflows()**
+  
+    Returns an array of workflows of the wrike workspace, the response will be cached.
 
 - **getContacts()**
   
