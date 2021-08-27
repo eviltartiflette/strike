@@ -16,8 +16,12 @@ function wrikeHTTP(method,path,params,token){
                 method:method,
                 headers:{
                     'Authorization': 'Bearer ' + token
-                },
-                qs:qsStringHelper(params),
+                }
+            }
+
+            const qString = qsStringHelper(params);
+            if(Object.keys(qString).length > 0){
+                reqopts['qs'] = qString;
             }
 
             requestPromise(reqopts)
@@ -31,12 +35,28 @@ function wrikeHTTP(method,path,params,token){
 }
 
 function qsStringHelper(params){
-    Object.keys(params).forEach(x=>{
-        if(typeof params[x] !== 'string'){
-            params[x] = JSON.stringify(params[x])
-        }
-    })
-    return params
+        let fields = [
+        "metadata", "profile", "fields",
+        "members", "addMembers", "removeMembers",
+        "customStatus", "shareds", "addShareds",
+        "removeShareds", "updatedDate", "customField",
+        "customFields", "customColumns", "project",
+        "responsibles", "addResponsibles", "removeResponsibles",
+        "parents", "addParents", "removeParents",
+        "status", "startDate", "dueDate",
+        "scheduledDate", "createdDate", "updatedDate",
+        "trackedDate", "completedDate", "authors",
+        "dates", "followers", "addFollowers",
+        "removeFollowers", "superTasks", "addSuperTasks",
+        "removeSuperTasks", "ids"
+        ];
+        
+        Object.keys(params).forEach(function(key) {
+          if(fields.indexOf(key) > -1){
+            params[key] = JSON.stringify(params[key]);
+          }
+        });
+        return params
 }
 
 /**
@@ -187,7 +207,7 @@ WrikeClient.prototype.getCustomFields = function(){
 WrikeClient.prototype.getFolderTree = function(params){
     if(typeof params == 'undefined'){params = {}}
     return new Promise((resolve,reject)=>{
-        wrikeHTTP('GET','/folders',{},this.token)
+        wrikeHTTP('GET','/folders', params, this.token)
         .then(res=>{
             resolve(res)
         })
