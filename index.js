@@ -488,4 +488,62 @@ WrikeClient.prototype.deleteTask = function(taskid){
 }
 
 
+
+
+/**
+ * Modify a Wrike timelog
+ * @async
+ * {@link https://developers.wrike.com/api/v4/timelogs/#modify-timelog PUT /timelogs documentation}
+ * @returns {object} Updated timelog
+ */
+ WrikeClient.prototype.updateTimelog = function(id, params){
+    if(typeof params == 'undefined'){params = {}}
+    return new Promise((resolve,reject)=>{
+        wrikeHTTP('PUT','/timelogs/'+id, params, this.token)
+        .then(res=>{
+            resolve(res)
+        })
+        .catch(err=>{
+            reject(err)
+        })
+    })
+}
+
+/**
+ * Return Wrike timelogs
+ * @async
+ * {@link https://developers.wrike.com/api/v4/timelogs/#query-timelogs GET /timelogs documentation}
+ * @returns {Array} List of timelogs
+ */
+ WrikeClient.prototype.getTimelogs = function(params){
+    if(typeof params == 'undefined'){params = {}}
+    return new Promise((resolve,reject)=>{
+        wrikeHTTP('GET','/timelogs',params,this.token)
+        .then(res=>{
+            resolve(res)
+        })
+        .catch(err=>{
+            reject(err)
+        })
+    })
+}
+
+/**
+ * Return Wrike timelogs categories
+ * @async
+ * {@link https://developers.wrike.com/api/v4/timelog-categories/#query-timelog-categories GET /timelog_categories documentation}
+ * @returns {Array} List of timelog categories
+ */
+ WrikeClient.prototype.getTimelogCategories = function(){
+    return new Promise((resolve,reject)=>{
+        wrikeHTTP('GET','/timelog_categories',{},this.token)
+        .then(res=>{
+            resolve(res)
+        })
+        .catch(err=>{
+            reject(err)
+        })
+    })
+}
+
 module.exports = WrikeClient;
